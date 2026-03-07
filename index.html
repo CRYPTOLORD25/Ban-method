@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ ᴡʜᴀᴛsᴀᴘᴘ ʙᴀɴ ᴍᴇᴛʜᴏᴅ - ᴄʀʏᴘᴛᴏ ʟᴏʀᴅ ᴇᴅɪᴛɪᴏɴ</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-magenta: #ff00ff;
+            --deep-purple: #4a0080;
+            --electric-blue: #00d4ff;
+            --cyber-green: #00ff88;
+            --dark-bg: #0a0a0f;
+            --glass-bg: rgba(20, 20, 35, 0.85);
+            --border-glow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, #1a0033 0%, #4a0080 50%, #ff0066 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 0, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 11px),
+                repeating-linear-gradient(-45deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 11px);
+            pointer-events: none;
+            z-index: -1;
+            animation: bgPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 2px solid var(--neon-magenta);
+            box-shadow: 0 5px 30px rgba(255, 0, 255, 0.3);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--neon-magenta), var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+        }
+
+        .menu-btn {
+            background: none;
+            border: 2px solid var(--neon-magenta);
+            color: var(--neon-magenta);
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .menu-btn:hover {
+            background: var(--neon-magenta);
+            color: #000;
+            box-shadow: 0 0 20px var(--neon-magenta);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 60px;
+            right: 30px;
+            background: var(--glass-bg);
+            border: 2px solid var(--neon-magenta);
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 250px;
+            display: none;
+            box-shadow: var(--border-glow);
+            backdrop-filter: blur(20px);
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .menu-item {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 0, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 0, 255, 0.1);
+            padding-left: 20px;
+            color: var(--electric-blue);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+            color: #ff4444;
+        }
+
+        /* Auth Pages */
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .auth-box {
+            background: var(--glass-bg);
+            border: 2px solid var(--neon-magenta);
+            border-radius: 30px;
+            padding: 50px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: var(--border-glow), 0 0 60px rgba(74, 0, 128, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-box::before {
+            content: '⚡';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            opacity: 0.1;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .auth-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, var(--neon-magenta), var(--electric-blue), var(--cyber-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .auth-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--electric-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 0, 255, 0.3);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Rajdhani', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--neon-magenta);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--neon-magenta);
+        }
+
+        .btn-glow {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(45deg, var(--neon-magenta), var(--deep-purple));
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(255, 0, 255, 0.4);
+        }
+
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-glow:hover::before {
+            left: 100%;
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .auth-switch a {
+            color: var(--electric-blue);
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .auth-switch a:hover {
+            text-shadow: 0 0 10px var(--electric-blue);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 0, 255, 0.3);
+        }
+
+        .divider span {
+            padding: 0 15px;
+        }
+
+        .google-btn {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+        }
+
+        .google-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--electric-blue);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Main Dashboard */
+        .dashboard {
+            display: none;
+            padding: 100px 30px 30px;
+            min-height: 100vh;
+        }
+
+        .dashboard.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 968px) {
+            .dashboard-grid {
+                grid-width: 1fr;
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: var(--glass-bg);
+            border: 2px solid rgba(255, 0, 255, 0.3);
+            border-radius: 25px;
+            padding: 35px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-magenta), var(--electric-blue), var(--cyber-green));
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .panel-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--neon-magenta), var(--deep-purple));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.4);
+        }
+
+        .panel-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .panel-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .input-field {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 0, 255, 0.2);
+            border-radius: 12px;
+            padding: 15px;
+            color: #fff;
+            width: 100%;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--neon-magenta);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+        }
+
+        .counter-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 0, 255, 0.2);
+            border-radius: 12px;
+            padding: 10px;
+        }
+
+        .counter-btn {
+            width: 45px;
+            height: 45px;
+            border: 2px solid var(--neon-magenta);
+            background: transparent;
+            color: var(--neon-magenta);
+            border-radius: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .counter-btn:hover {
+            background: var(--neon-magenta);
+            color: #000;
+            box-shadow: 0 0 20px var(--neon-magenta);
+        }
+
+        .counter-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--cyber-green);
+            text-shadow: 0 0 10px var(--cyber-green);
+        }
+
+        select.input-field {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ff00ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+        }
+
+        .evidence-drop {
+            border: 3px dashed rgba(255, 0, 255, 0.3);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .evidence-drop:hover {
+            border-color: var(--neon-magenta);
+            background: rgba(255, 0, 255, 0.05);
+        }
+
+        .evidence-drop i {
+            font-size: 3rem;
+            color: var(--neon-magenta);
+            margin-bottom: 15px;
+        }
+
+        .file-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .file-tag {
+            background: rgba(0, 255, 136, 0.2);
+            border: 1px solid var(--cyber-green);
+            color: var(--cyber-green);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            margin-top: 25px;
+            background: linear-gradient(45deg, var(--neon-magenta), #ff0066);
+            border: none;
+            border-radius: 15px;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            box-shadow: 0 10px 40px rgba(255, 0, 255, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(255, 0, 255, 0.5);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Stats Panel */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 0, 255, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-magenta), var(--electric-blue));
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--cyber-green);
+            text-shadow: 0 0 20px var(--cyber-green);
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+
+        .activity-log {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .activity-log::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .activity-log::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .activity-log::-webkit-scrollbar-thumb {
+            background: var(--neon-magenta);
+            border-radius: 4px;
+        }
+
+        .log-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--neon-magenta);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 10px 10px 0;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .log-number {
+            color: var(--electric-blue);
+            font-weight: 700;
+        }
+
+        .log-status {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-pending { background: rgba(255, 193, 7, 0.2); color: #ffc107; }
+        .status-submitted { background: rgba(0, 255, 136, 0.2); color: var(--cyber-green); }
+        .status-processing { background: rgba(0, 212, 255, 0.2); color: var(--electric-blue); }
+
+        .log-details {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 15, 0.98);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 9999;
+        }
+
+        .loading-overlay.show {
+            display: flex;
+        }
+
+        .cyber-spinner {
+            width: 100px;
+            height: 100px;
+            border: 3px solid transparent;
+            border-top-color: var(--neon-magenta);
+            border-right-color: var(--electric-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: relative;
+        }
+
+        .cyber-spinner::before {
+            content: '⚡';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        .loading-text {
+            margin-top: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--neon-magenta);
+            text-align: center;
+        }
+
+        .loading-subtext {
+            margin-top: 10px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Success Modal */
+        .success-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 15, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+        }
+
+        .success-modal.show {
+            display: flex;
+            animation: zoomIn 0.5s ease;
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .success-content {
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(0, 212, 255, 0.1));
+            border: 3px solid var(--cyber-green);
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 0 100px rgba(0, 255, 136, 0.3);
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--cyber-green), #00cc6a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3rem;
+            color: #000;
+            box-shadow: 0 0 50px var(--cyber-green);
+            animation: successPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes successPulse {
+            0%, 100% { box-shadow: 0 0 50px var(--cyber-green); }
+            50% { box-shadow: 0 0 80px var(--cyber-green); }
+        }
+
+        .success-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--cyber-green);
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px var(--cyber-green);
+        }
+
+        .success-message {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .case-number {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--electric-blue);
+            border: 2px solid var(--electric-blue);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .close-success {
+            padding: 15px 40px;
+            background: transparent;
+            border: 2px solid var(--cyber-green);
+            color: var(--cyber-green);
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-success:hover {
+            background: var(--cyber-green);
+            color: #000;
+            box-shadow: 0 0 30px var(--cyber-green);
+        }
+
+        /* Info Modal */
+        .info-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 15, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+        }
+
+        .info-modal.show {
+            display: flex;
+        }
+
+        .info-content {
+            background: var(--glass-bg);
+            border: 2px solid var(--electric-blue);
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .info-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 0, 255, 0.2);
+        }
+
+        .info-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--electric-blue);
+        }
+
+        .close-info {
+            background: none;
+            border: none;
+            color: #ff4444;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .info-section {
+            margin-bottom: 25px;
+        }
+
+        .info-section h3 {
+            color: var(--neon-magenta);
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .info-section p, .info-section li {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .info-section ul {
+            padding-left: 20px;
+        }
+
+        .telegram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #0088cc;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .telegram-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 136, 204, 0.4);
+        }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" style="display: none;">
+        <div class="logo">⚡ ᴄʀʏᴘᴛᴏ ʟᴏʀᴅ ʙᴀɴ ᴍᴇᴛʜᴏᴅ</div>
+        <button class="menu-btn" onclick="toggleMenu()">
+            <i class="fas fa-ellipsis-v"></i>
+        </button>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <div class="menu-item" onclick="showAbout()">
+                <i class="fas fa-info-circle"></i> ᴀʙᴏᴜᴛ ᴜs
+            </div>
+            <div class="menu-item" onclick="showFAQ()">
+                <i class="fas fa-question-circle"></i> ғᴀǫ
+            </div>
+            <div class="menu-item" onclick="openTelegram()">
+                <i class="fab fa-telegram"></i> ᴊᴏɪɴ ᴛᴇʟᴇɢʀᴀᴍ
+            </div>
+            <div class="menu-item" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> ʟᴏɢᴏᴜᴛ
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auth Container -->
+    <div class="auth-container" id="authContainer">
+        <!-- Login Form -->
+        <div class="auth-box" id="loginBox">
+            <div class="auth-header">
+                <h1>⚡ ᴄʀʏᴘᴛᴏ ʟᴏʀᴅ</h1>
+                <p>ᴡʜᴀᴛsᴀᴘᴘ ʙᴀɴ ᴍᴇᴛʜᴏᴅ sʏsᴛᴇᴍ</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="loginEmail" required placeholder="Enter your email">
+                    <i class="fas fa-envelope input-icon"></i>
+                </div>
+                
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Enter your password">
+                    <i class="fas fa-lock input-icon"></i>
+                </div>
+                
+                <button type="submit" class="btn-glow">
+                    <i class="fas fa-bolt"></i> ʟᴏɢɪɴ ᴛᴏ ᴏᴜʀ sʏsᴛᴇᴍ
+                </button>
+            </form>
+            
+            <div class="divider">
+                <span>OR</span>
+            </div>
+            
+            <button class="google-btn" onclick="googleAuth()">
+                <i class="fab fa-google"></i> ᴄᴏɴᴛɪɴᴜᴇ ᴡɪᴛʜ ɢᴏᴏɢʟᴇ
+            </button>
+            
+            <div class="auth-switch">
+                ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴀɴ ᴀᴄᴄᴏᴜɴᴛ? <a onclick="showRegister()">ᴄʀᴇᴀᴛᴇ ᴀᴄᴄᴏᴜɴᴛ</a>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div class="auth-box hidden" id="registerBox">
+            <div class="auth-header">
+                <h1>⚡ ᴊᴏɪɴ ᴛʜᴇ ᴇʟɪᴛᴇ</h1>
+                <p>ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ʙᴀɴ ᴍᴇᴛʜᴏᴅ ᴀᴄᴄᴏᴜɴᴛ</p>
+            </div>
+            
+            <form id="registerForm">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="regName" required placeholder="Enter your full name">
+                    <i class="fas fa-user input-icon"></i>
+                </div>
+                
+                <div class="input-group">
+                    <label>ᴇᴍᴀɪʟ ᴀᴅᴅʀᴇss</label>
+                    <input type="email" id="regEmail" required placeholder="Enter your email">
+                    <i class="fas fa-envelope input-icon"></i>
+                </div>
+                
+                <div class="input-group">
+                    <label>ᴇɴᴛᴇʀ ᴘᴀssᴡᴏʀᴅ</label>
+                    <input type="password" id="regPassword" required placeholder="Create password (min 6 chars)">
+                    <i class="fas fa-lock input-icon"></i>
+                </div>
+                
+                <div class="input-group">
+                    <label>ᴄᴏɴғɪʀᴍ ᴘᴀssᴡᴏʀᴅ</label>
+                    <input type="password" id="regConfirmPassword" required placeholder="Confirm password">
+                    <i class="fas fa-lock input-icon"></i>
+                </div>
+                
+                <button type="submit" class="btn-glow">
+                    <i class="fas fa-user-plus"></i> ᴄʀᴇᴀᴛᴇ ᴀᴄᴄᴏᴜɴᴛ
+                </button>
+            </form>
+            
+            <div class="divider">
+                <span>OR</span>
+            </div>
+            
+            <button class="google-btn" onclick="googleAuth()">
+                <i class="fab fa-google"></i> sɪɢɴ ᴜᴘ ᴡɪᴛʜ ɢᴏᴏɢʟᴇ
+            </button>
+            
+            <div class="auth-switch">
+                ᴀʟʀᴇᴀᴅʏ ʜᴀᴠᴇ ᴀɴ ᴀᴄᴄᴏᴜɴᴛ? <a onclick="showLogin()">ʟᴏɢɪɴ</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="dashboard" id="dashboard">
+        <div class="dashboard-grid">
+            <!-- Report Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <div>
+                        <div class="panel-title">ʙᴀɴ ᴍᴇᴛʜᴏᴅ</div>
+                        <div class="panel-subtitle">ᴛᴀʀɢᴇᴛ ᴡʜᴀᴛsᴀᴘᴘ ᴀᴄᴄᴏᴜɴᴛ</div>
+                    </div>
+                </div>
+
+                <form id="banForm" class="form-grid">
+                    <div>
+                        <label style="color: var(--electric-blue); margin-bottom: 8px; display: block; text-transform: uppercase; font-weight: 600;">
+                            <i class="fab fa-whatsapp"></i> ᴛᴀʀɢᴇᴛ ᴡʜᴀᴛsᴀᴘᴘ ɴᴜᴍʙᴇʀ *
+                        </label>
+                        <input type="tel" class="input-field" id="targetNumber" required placeholder="+1 234 567 8900">
+                    </div>
+
+                    <div>
+                        <label style="color: var(--electric-blue); margin-bottom: 8px; display: block; text-transform: uppercase; font-weight: 600;">
+                            <i class="fas fa-redo"></i> ʀᴇᴘᴏʀᴛ ᴄᴏᴜɴᴛ (Max 50)
+                        </label>
+                        <div class="counter-box">
+                            <button type="button" class="counter-btn" onclick="adjustCount(-1)">-</button>
+                            <span class="counter-value" id="reportCount">10</span>
+                            <button type="button" class="counter-btn" onclick="adjustCount(1)">+</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="color: var(--electric-blue); margin-bottom: 8px; display: block; text-transform: uppercase; font-weight: 600;">
+                            <i class="fas fa-exclamation-triangle"></i> ʀᴇᴀsᴏɴ ғᴏʀ ʀᴇᴘᴏʀᴛɪɴɢ *
+                        </label>
+                        <select class="input-field" id="banReason" required>
+                            <option value=""> sᴇʟᴇᴄᴛ ᴠɪᴏʟᴀᴛɪᴏɴ ᴛʏᴘᴇs...</option>
+                            <option value="spam">sᴘᴀᴍ / ʙᴜʟᴋ ᴍᴇssᴀɢɪɴɢ</option>
+                            <option value="abuse">ᴀʙᴜsᴇ / ʜᴀʀᴀssᴍᴇɴᴛ</option>
+                            <option value="scam">sᴄᴀᴍ / ғʀᴀᴜᴅ ᴀᴄᴛɪᴠɪᴛʏ</option>
+                            <option value="impersonation">ɪᴍᴘᴇʀsᴏɴᴀᴛɪᴏɴ / ғᴀᴋᴇ ᴀᴄᴄᴏᴜɴᴛ</option>
+                            <option value="child">ᴄʜɪʟᴅ ᴇxᴘʟᴏɪᴛᴀᴛɪᴏɴ</option>
+                            <option value="terrorism">ᴛᴇʀʀᴏʀɪsᴍ / ᴠɪᴏʟᴇɴᴄᴇ</option>
+                            <option value="hate">ʜᴀᴛᴇ sᴘᴇᴇᴄʜ</option>
+                            <option value="drugs">ᴅʀᴜɢ ᴅᴇᴀʟɪɴɢ</option>
+                            <option value="hacking">ʜᴀᴄᴋɪɴɢ / ᴘʜɪsʜɪɴɢ</option>
+                            <option value="other">ᴏᴛʜᴇʀ ᴠɪᴏʟᴀᴛɪᴏɴ</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="color: var(--electric-blue); margin-bottom: 8px; display: block; text-transform: uppercase; font-weight: 600;">
+                            <i class="fas fa-camera"></i> ᴅʀᴏᴘ ᴇᴠɪᴅᴇɴᴄᴇ (sᴄʀᴇᴇɴsʜᴏᴛs)
+                        </label>
+                        <div class="evidence-drop" onclick="document.getElementById('evidenceFiles').click()" id="dropZone">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>ᴄʟɪᴄᴋ ᴛᴏ ᴜᴘʟᴏᴀᴅ ᴏʀ ᴅʀᴀɢ & ᴅʀᴏᴘ</p>
+                            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-top: 10px;">ᴍᴀx 5 ғɪʟᴇs (ɪᴍᴀɢᴇs ᴏɴʟʏ)</p>
+                        </div>
+                        <input type="file" id="evidenceFiles" multiple accept="image/*" style="display: none;" onchange="handleFiles(this)">
+                        <div class="file-list" id="fileList"></div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <i class="fas fa-rocket"></i> ɪɴɪᴛɪᴀᴛᴇ ʙᴀɴ sᴇǫᴜᴇɴᴄᴇ
+                    </button>
+                </form>
+            </div>
+
+            <!-- Stats Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-icon" style="background: linear-gradient(135deg, var(--electric-blue), var(--deep-purple));">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <div class="panel-title"> ᴍɪssɪᴏɴ ᴄᴏɴᴛʀᴏʟ</div>
+                        <div class="panel-subtitle" id="userDisplay">ᴡᴇʟᴄᴏᴍᴇ, ᴀɢᴇɴᴛ</div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalBans">0</div>
+                        <div class="stat-label">ᴛᴏᴛᴀʟ ʀᴇᴘᴏʀᴛs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="successRate">0%</div>
+                        <div class="stat-label">sᴜᴄᴄᴇss ʀᴀᴛᴇ</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="pendingBans">0</div>
+                        <div class="stat-label">ᴘᴇɴᴅɪɴɢ ʀᴇᴠɪᴇᴡ</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="todayCount">0</div>
+                        <div class="stat-label">ᴛᴏᴅᴀʏ's ʀᴇᴘᴏʀᴛs</div>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Orbitron', sans-serif; color: var(--neon-magenta); margin-bottom: 15px;">
+                    <i class="fas fa-history"></i> ʀᴇᴄᴇɴᴛ ᴀᴄᴛɪᴠɪᴛʏ
+                </h3>
+                <div class="activity-log" id="activityLog">
+                    <p style="text-align: center; color: rgba(255,255,255,0.5); padding: 20px;">No missions completed yet</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="cyber-spinner"></div>
+        <div class="loading-text">ᴘʀᴏᴄᴇssɪɴɢ ʙᴀɴ ʀᴇǫᴜᴇsᴛ</div>
+        <div class="loading-subtext"> ᴇɴᴄʀʏᴘᴛɪɴɢ data... sᴜʙᴍɪᴛᴛɪɴɢ ᴛᴏ ᴡʜᴀᴛsᴀᴘᴘ sᴜᴘᴘᴏʀᴛ...</div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2 class="success-title">ᴍɪssɪᴏɴ ᴀᴄᴄᴏᴍᴘʟɪsʜᴇᴅ 🤌</h2>
+            <p class="success-message">
+                ʏᴏᴜʀ ʀᴇᴘᴏʀᴛ ʜᴀs ʙᴇᴇɴ sᴜᴄᴄᴇssғᴜʟʟʏ sᴜʙᴍɪᴛᴛᴇᴅ ᴛᴏ ᴡʜᴀᴛsᴀᴘᴘ sᴜᴘᴘᴏʀᴛ ᴛᴇᴀᴍ!<br>
+                ᴛʜᴇ ᴛᴀʀɢᴇᴛ ᴀᴄᴄᴏᴜɴᴛ ɪs ɴᴏᴡ ᴜɴᴅᴇʀ ʀᴇᴠɪᴇᴡ.
+            </p>
+            <div class="case-number" id="caseNumberDisplay">ᴄᴀsᴇ: WA-XXXXXXXXX</div>
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 25px;">
+                <i class="fas fa-clock"></i> ᴇsᴛɪᴍᴀᴛᴇᴅ ʀᴇᴠɪᴇᴡ ᴛɪᴍᴇ: <strong>24-48 ʜᴏᴜʀs</strong><br>
+                ʏᴏᴜ ᴡɪʟʟ ʀᴇᴄᴇɪᴠᴇ ᴇᴍᴀɪʟ ᴄᴏɴғɪʀᴍᴀᴛɪᴏɴ ᴏɴᴄᴇ ᴘʀᴏᴄᴇssᴇᴅ.
+            </p>
+            <button class="close-success" onclick="closeSuccess()">
+                <i class="fas fa-thumbs-up"></i> ʀᴏɢᴇʀ ᴛʜᴀᴛ
+            </button>
+        </div>
+    </div>
+
+    <!-- Info Modal (About/FAQ) -->
+    <div class="info-modal" id="infoModal">
+        <div class="info-content">
+            <div class="info-header">
+                <h2 class="info-title" id="infoTitle">About Us</h2>
+                <button class="close-info" onclick="closeInfo()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="infoBody">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================================
+        // ᴄʀʏᴘᴛᴏ ʟᴏʀᴅ ʙᴀɴ ᴍᴇᴛʜᴏᴅ 
+        // ================================
+
+        class CryptoLordBackend {
+            constructor() {
+                this.users = JSON.parse(localStorage.getItem('cl_users')) || [];
+                this.reports = JSON.parse(localStorage.getItem('cl_reports')) || [];
+                this.currentUser = JSON.parse(localStorage.getItem('cl_current_user')) || null;
+                this.sessionToken = localStorage.getItem('cl_session_token') || null;
+            }
+
+            // Authentication Methods
+            register(name, email, password) {
+                if (this.users.find(u => u.email === email)) {
+                    return { success: false, message: 'Email already registered' };
+                }
+                
+                const user = {
+                    id: this.generateId(),
+                    name,
+                    email,
+                    password: this.hashPassword(password),
+                    createdAt: new Date().toISOString(),
+                    lastLogin: null,
+                    reportsCount: 0,
+                    successCount: 0
+                };
+                
+                this.users.push(user);
+                this.saveUsers();
+                return { success: true, user };
+            }
+
+            login(email, password) {
+                const user = this.users.find(u => u.email === email);
+                if (!user || user.password !== this.hashPassword(password)) {
+                    return { success: false, message: 'Invalid credentials' };
+                }
+                
+                user.lastLogin = new Date().toISOString();
+                this.saveUsers();
+                
+                const token = this.generateToken();
+                this.currentUser = user;
+                this.sessionToken = token;
+                
+                localStorage.setItem('cl_current_user', JSON.stringify(user));
+                localStorage.setItem('cl_session_token', token);
+                
+                return { success: true, user, token };
+            }
+
+            googleAuth(email, name) {
+                let user = this.users.find(u => u.email === email);
+                
+                if (!user) {
+                    user = {
+                        id: this.generateId(),
+                        name,
+                        email,
+                        password: this.hashPassword(this.generateId()),
+                        createdAt: new Date().toISOString(),
+                        lastLogin: new Date().toISOString(),
+                        reportsCount: 0,
+                        successCount: 0,
+                        googleAuth: true
+                    };
+                    this.users.push(user);
+                    this.saveUsers();
+                } else {
+                    user.lastLogin = new Date().toISOString();
+                    user.googleAuth = true;
+                    this.saveUsers();
+                }
+                
+                const token = this.generateToken();
+                this.currentUser = user;
+                this.sessionToken = token;
+                
+                localStorage.setItem('cl_current_user', JSON.stringify(user));
+                localStorage.setItem('cl_session_token', token);
+                
+                return { success: true, user, token };
+            }
+
+            logout() {
+                this.currentUser = null;
+                this.sessionToken = null;
+                localStorage.removeItem('cl_current_user');
+                localStorage.removeItem('cl_session_token');
+                return { success: true };
+            }
+
+            // Report Methods
+            submitBanReport(data) {
+                if (!this.currentUser) {
+                    return { success: false, message: 'Authentication required' };
+                }
+
+                const report = {
+                    id: this.generateId(),
+                    caseNumber: 'CL-' + Date.now().toString(36).toUpperCase(),
+                    userId: this.currentUser.id,
+                    targetNumber: data.targetNumber,
+                    reportCount: data.reportCount,
+                    reason: data.reason,
+                    reasonText: this.getReasonText(data.reason),
+                    evidence: data.evidence || [],
+                    status: 'submitted',
+                    submittedAt: new Date().toISOString(),
+                    estimatedReview: this.calculateReviewTime(),
+                    priority: this.calculatePriority(data.reportCount),
+                    ipAddress: this.generateIP(),
+                    userAgent: navigator.userAgent
+                };
+
+                // Simulate WhatsApp API submission
+                this.simulateWhatsAppSubmission(report);
+                
+                this.reports.push(report);
+                this.saveReports();
+                
+                // Update user stats
+                this.currentUser.reportsCount++;
+                this.updateUserStats();
+                
+                return { 
+                    success: true, 
+                    report,
+                    message: 'Report submitted successfully to WhatsApp Support'
+                };
+            }
+
+            simulateWhatsAppSubmission(report) {
+                // Real simulation of WhatsApp reporting endpoints
+                console.log(`[WHATSAPP API] Submitting report ${report.caseNumber}...`);
+                console.log(`[WHATSAPP API] Target: ${report.targetNumber}`);
+                console.log(`[WHATSAPP API] Priority: ${report.priority}`);
+                console.log(`[WHATSAPP API] Reports batch: ${report.reportCount} instances`);
+                
+                // Simulate different API endpoints based on violation type
+                const endpoints = {
+                    'spam': 'https://support.whatsapp.com/contact/violation/spam',
+                    'abuse': 'https://support.whatsapp.com/contact/violation/abuse',
+                    'scam': 'https://support.whatsapp.com/contact/violation/fraud',
+                    'impersonation': 'https://support.whatsapp.com/contact/violation/impersonation',
+                    'child': 'https://support.whatsapp.com/contact/violation/csam',
+                    'terrorism': 'https://support.whatsapp.com/contact/violation/terrorism',
+                    'hate': 'https://support.whatsapp.com/contact/violation/hate-speech',
+                    'drugs': 'https://support.whatsapp.com/contact/violation/drugs',
+                    'hacking': 'https://support.whatsapp.com/contact/violation/hacking',
+                    'other': 'https://support.whatsapp.com/contact/violation/general'
+                };
+
+                report.whatsappEndpoint = endpoints[report.reason] || endpoints.other;
+                report.submissionLog = [];
+                
+                // Generate submission timestamps for each report count
+                for (let i = 1; i <= report.reportCount; i++) {
+                    report.submissionLog.push({
+                        attempt: i,
+                        timestamp: new Date(Date.now() + (i * 1000)).toISOString(),
+                        status: 'delivered',
+                        serverResponse: '200 OK'
+                    });
+                }
+            }
+
+            getReportsByUser(userId) {
+                return this.reports.filter(r => r.userId === userId).sort((a, b) => 
+                    new Date(b.submittedAt) - new Date(a.submittedAt)
+                );
+            }
+
+            getUserStats(userId) {
+                const userReports = this.getReportsByUser(userId);
+                const today = new Date().toDateString();
+                
+                return {
+                    total: userReports.length,
+                    pending: userReports.filter(r => r.status === 'submitted' || r.status === 'processing').length,
+                    resolved: userReports.filter(r => r.status === 'resolved').length,
+                    today: userReports.filter(r => new Date(r.submittedAt).toDateString() === today).length,
+                    successRate: userReports.length > 0 ? 
+                        Math.round((userReports.filter(r => r.status === 'resolved').length / userReports.length) * 100) : 0
+                };
+            }
+
+            // Utility Methods
+            generateId() {
+                return 'CL-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            }
+
+            generateToken() {
+                return 'TKN-' + Date.now().toString(36) + Math.random().toString(36).substr(2);
+            }
+
+            hashPassword(password) {
+                // Simple hash for demo (use bcrypt in production)
+                let hash = 0;
+                for (let i = 0; i < password.length; i++) {
+                    const char = password.charCodeAt(i);
+                    hash = ((hash << 5) - hash) + char;
+                    hash = hash & hash;
+                }
+                return 'HASH_' + Math.abs(hash).toString(16);
+            }
+
+            getReasonText(reason) {
+                const reasons = {
+                    'spam': 'Spam / Bulk Messaging',
+                    'abuse': 'Abuse / Harassment',
+                    'scam': 'Scam / Fraud Activity',
+                    'impersonation': 'Impersonation / Fake Account',
+                    'child': 'Child Exploitation',
+                    'terrorism': 'Terrorism / Violence',
+                    'hate': 'Hate Speech',
+                    'drugs': 'Drug Dealing',
+                    'hacking': 'Hacking / Phishing',
+                    'other': 'Other Violation'
+                };
+                return reasons[reason] || reason;
+            }
+
+            calculateReviewTime() {
+                const now = new Date();
+                const minHours = 24;
+                const maxHours = 48;
+                const randomHours = Math.floor(Math.random() * (maxHours - minHours + 1)) + minHours;
+                const reviewTime = new Date(now.getTime() + (randomHours * 60 * 60 * 1000));
+                return reviewTime.toISOString();
+            }
+
+            calculatePriority(count) {
+                if (count >= 40) return 'CRITICAL';
+                if (count >= 25) return 'HIGH';
+                if (count >= 10) return 'MEDIUM';
+                return 'LOW';
+            }
+
+            generateIP() {
+                return `${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}`;
+            }
+
+            saveUsers() {
+                localStorage.setItem('cl_users', JSON.stringify(this.users));
+            }
+
+            saveReports() {
+                localStorage.setItem('cl_reports', JSON.stringify(this.reports));
+            }
+
+            updateUserStats() {
+                const index = this.users.findIndex(u => u.id === this.currentUser.id);
+                if (index !== -1) {
+                    this.users[index] = this.currentUser;
+                    this.saveUsers();
+                    localStorage.setItem('cl_current_user', JSON.stringify(this.currentUser));
+                }
+            }
+        }
+
+        // Initialize Backend
+        const Backend = new CryptoLordBackend();
+
+        // ================================
+        // ғʀᴏɴᴛᴇɴᴅ ᴄᴏɴᴛʀᴏʟʟᴇʀs
+        // ================================
+
+        let reportCount = 10;
+        let uploadedFiles = [];
+
+        // Auth Functions
+        function showRegister() {
+            document.getElementById('loginBox').classList.add('hidden');
+            document.getElementById('registerBox').classList.remove('hidden');
+        }
+
+        function showLogin() {
+            document.getElementById('registerBox').classList.add('hidden');
+            document.getElementById('loginBox').classList.remove('hidden');
+        }
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const password = document.getElementById('regPassword').value;
+            const confirmPass = document.getElementById('regConfirmPassword').value;
+            
+            if (password !== confirmPass) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters!');
+                return;
+            }
+            
+            const result = Backend.register(name, email, password);
+            
+            if (result.success) {
+                alert('Account created successfully! Please login.');
+                showLogin();
+            } else {
+                alert(result.message);
+            }
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            const result = Backend.login(email, password);
+            
+            if (result.success) {
+                enterDashboard(result.user);
+            } else {
+                alert(result.message);
+            }
+        });
+
+        function googleAuth() {
+            // Simulate Google OAuth
+            const mockEmail = 'user' + Date.now() + '@gmail.com';
+            const mockName = 'Crypto Agent';
+            
+            const result = Backend.googleAuth(mockEmail, mockName);
+            
+            if (result.success) {
+                alert('Google authentication successful!');
+                enterDashboard(result.user);
+            }
+        }
+
+        function enterDashboard(user) {
+            document.getElementById('authContainer').style.display = 'none';
+            document.getElementById('navbar').style.display = 'flex';
+            document.getElementById('dashboard').classList.add('show');
+            document.getElementById('userDisplay').textContent = `Welcome, ${user.name}`;
+            
+            updateStats();
+            renderActivityLog();
+        }
+
+        function logout() {
+            Backend.logout();
+            location.reload();
+        }
+
+        // Check existing session
+        if (Backend.currentUser && Backend.sessionToken) {
+            enterDashboard(Backend.currentUser);
+        }
+
+        // Ban Method Functions
+        function adjustCount(delta) {
+            reportCount += delta;
+            if (reportCount < 1) reportCount = 1;
+            if (reportCount > 50) reportCount = 50;
+            document.getElementById('reportCount').textContent = reportCount;
+        }
+
+        function handleFiles(input) {
+            const files = Array.from(input.files);
+            const maxFiles = 5 - uploadedFiles.length;
+            
+            if (files.length > maxFiles) {
+                alert(`You can only upload maximum 5 files. ${uploadedFiles.length} already selected.`);
+                return;
+            }
+            
+            uploadedFiles = [...uploadedFiles, ...files.slice(0, maxFiles)];
+            renderFileList();
+        }
+
+        function renderFileList() {
+            const container = document.getElementById('fileList');
+            container.innerHTML = uploadedFiles.map((file, index) => `
+                <div class="file-tag">
+                    <i class="fas fa-image"></i>
+                    ${file.name}
+                    <i class="fas fa-times" style="cursor: pointer;" onclick="removeFile(${index})"></i>
+                </div>
+            `).join('');
+        }
+
+        function removeFile(index) {
+            uploadedFiles.splice(index, 1);
+            renderFileList();
+        }
+
+        // Drag and drop
+        const dropZone = document.getElementById('dropZone');
+        
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = 'var(--neon-magenta)';
+            dropZone.style.background = 'rgba(255, 0, 255, 0.1)';
+        });
+        
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.borderColor = 'rgba(255, 0, 255, 0.3)';
+            dropZone.style.background = 'rgba(0, 0, 0, 0.2)';
+        });
+        
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = 'rgba(255, 0, 255, 0.3)';
+            dropZone.style.background = 'rgba(0, 0, 0, 0.2)';
+            
+            const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+            const maxFiles = 5 - uploadedFiles.length;
+            uploadedFiles = [...uploadedFiles, ...files.slice(0, maxFiles)];
+            renderFileList();
+        });
+
+        document.getElementById('banForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const targetNumber = document.getElementById('targetNumber').value;
+            const reason = document.getElementById('banReason').value;
+            
+            if (!targetNumber || !reason) {
+                alert('Please fill all required fields!');
+                return;
+            }
+            
+            // Show loading
+            document.getElementById('loadingOverlay').classList.add('show');
+            document.getElementById('submitBtn').disabled = true;
+            
+            // Simulate processing
+            setTimeout(() => {
+                const reportData = {
+                    targetNumber,
+                    reportCount,
+                    reason,
+                    evidence: uploadedFiles.map(f => f.name)
+                };
+                
+                const result = Backend.submitBanReport(reportData);
+                
+                document.getElementById('loadingOverlay').classList.remove('show');
+                document.getElementById('submitBtn').disabled = false;
+                
+                if (result.success) {
+                    showSuccess(result.report);
+                    this.reset();
+                    uploadedFiles = [];
+                    renderFileList();
+                    updateStats();
+                    renderActivityLog();
+                }
+            }, 30000); // 30 seconds as requested
+        });
+
+        function showSuccess(report) {
+            document.getElementById('caseNumberDisplay').textContent = `CASE: ${report.caseNumber}`;
+            document.getElementById('successModal').classList.add('show');
+        }
+
+        function closeSuccess() {
+            document.getElementById('successModal').classList.remove('show');
+        }
+
+        function updateStats() {
+            if (!Backend.currentUser) return;
+            
+            const stats = Backend.getUserStats(Backend.currentUser.id);
+            document.getElementById('totalBans').textContent = stats.total;
+            document.getElementById('successRate').textContent = stats.successRate + '%';
+            document.getElementById('pendingBans').textContent = stats.pending;
+            document.getElementById('todayCount').textContent = stats.today;
+        }
+
+        function renderActivityLog() {
+            if (!Backend.currentUser) return;
+            
+            const reports = Backend.getReportsByUser(Backend.currentUser.id);
+            const container = document.getElementById('activityLog');
+            
+            if (reports.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.5); padding: 20px;">No missions completed yet</p>';
+                return;
+            }
+            
+            container.innerHTML = reports.slice(0, 10).map(report => `
+                <div class="log-item">
+                    <div class="log-header">
+                        <span class="log-number">${report.caseNumber}</span>
+                        <span class="log-status status-${report.status}">${report.status.toUpperCase()}</span>
+                    </div>
+                    <div class="log-details">
+                        <i class="fab fa-whatsapp"></i> ${report.targetNumber} | 
+                        <i class="fas fa-copy"></i> ${report.reportCount} reports | 
+                        <i class="fas fa-tag"></i> ${report.reasonText}
+                    </div>
+                    <div style="margin-top: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.5);">
+                        ${new Date(report.submittedAt).toLocaleString()}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Menu Functions
+        function toggleMenu() {
+            document.getElementById('dropdownMenu').classList.toggle('show');
+        }
+
+        function showAbout() {
+            document.getElementById('dropdownMenu').classList.remove('show');
+            document.getElementById('infoTitle').textContent = '⚡ ᴀʙᴏᴜᴛ ᴄʀʏᴘᴛᴏ ʟᴏʀᴅ';
+            document.getElementById('infoBody').innerHTML = `
+                <div class="info-section">
+                    <h3>ᴡʜᴏ ᴡᴇ ᴀʀᴇ</h3>
+                    <p>ᴄʀʏᴘᴛᴏ ʟᴏʀᴅ ʙᴀɴ ᴡᴇʙ ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴ ᴍᴇᴛʜᴏᴅ ɪs ᴛʜᴇ ᴍᴏsᴛ ᴀᴅᴠᴀɴᴄᴇᴅ ᴡʜᴀᴛsᴀᴘᴘ ʀᴇᴘᴏʀᴛɪɴɢ ᴘʟᴀᴛғᴏʀᴍ ᴅᴇsɪɢɴᴇᴅ ғᴏʀ sᴇʀɪᴏᴜs ᴜsᴇʀs ᴡʜᴏ ɴᴇᴇᴅ ᴛᴏ ʀᴇᴘᴏʀᴛ ᴠɪᴏʟᴀᴛɪᴏɴs effectivᴇely. ᴡᴇ ᴜᴛɪʟɪᴢᴇ ᴍᴜʟᴛɪ-ᴛʜʀᴇᴀᴅᴇᴅ ʀᴇᴘᴏʀᴛɪɴɢ ᴛᴇᴄʜɴᴏʟᴏɢʏ ᴛᴏ ᴇɴsᴜʀᴇ ʏᴏᴜʀ ʀᴇᴘᴏʀᴛs ʀᴇᴀᴄʜ ᴡʜᴀᴛsᴀᴘᴘ sᴜᴘᴘᴏʀᴛ ᴡɪᴛʜ ᴍᴀxɪᴍᴜᴍ ɪᴍᴘᴀᴄᴛ.</p>
+                </div>
+                <div class="info-section">
+                    <h3>ᴏᴜʀ ᴛᴇᴄʜɴᴏʟᴏɢʏ</h3>
+                    <ul>
+                        <li>ᴍᴜʟᴛɪ-ɪɴsᴛᴀɴᴄᴇ ʀᴇᴘᴏʀᴛɪɴɢ (up to 50x per submission)</li>
+                        <li>ᴀᴜᴛᴏ-ʀᴏᴜᴛɪɴɢ to correct ᴡʜᴀᴛsᴀᴘᴘ ᴠɪᴏʟᴀᴛɪᴏɴ ᴅᴇᴘᴀʀᴛᴍᴇɴᴛs</li>
+                        <li>ᴇɴᴄʀʏᴘᴛᴇᴅ ᴇᴠɪᴅᴇɴᴄᴇ ʜᴀɴᴅʟɪɴɢ</li>
+                        <li>ʀᴇᴀʟ-ᴛɪᴍᴇ sᴛᴀᴛᴜs ᴛʀᴀᴄᴋɪɴɢ</li>
+                        <li>ᴘʀɪᴏʀɪᴛɪᴇ ǫᴜᴇᴜɪɴɢ sʏsᴛᴇᴍ</li>
+                    </ul>
+                </div>
+                <div class="info-section">
+                    <h3>ʟᴇɢᴀʟ ɴᴏᴛɪᴄᴇ</h3>
+                    <p>This ᴛᴏᴏʟ ɪs ᴅᴇsɪɢɴᴇᴅ ғᴏʀ ʟᴇɢɪᴛɪᴍᴀᴛᴇ ʀᴇᴘᴏʀᴛɪɴɢ ᴏғ ᴛᴇʀᴍs ᴏғ sᴇʀᴠɪᴄᴇ ᴠɪᴏʟᴀᴛɪᴏɴs ᴏɴʟʏ. ᴍɪsᴜsᴇ ᴏғ ᴛʜɪs ᴘʟᴀᴛғᴏʀᴍ ғᴏʀ ʜᴀʀᴀssᴍᴇɴᴛ ᴏʀ ғᴀʟsᴇ ʀᴇᴘᴏʀᴛɪɴɢ ɪs sᴛʀɪᴄᴛʟʏ ᴘʀᴏʜɪʙɪᴛᴇᴅ ᴀɴᴅ ᴍᴀʏ ʀᴇsᴜʟᴛ ɪɴ ᴘᴇʀᴍᴀɴᴇɴᴛ ʙᴀɴ ғʀᴏᴍ ᴏᴜʀ sᴇʀᴠɪᴄᴇs.</p>
+                </div>
+                <div class="info-section">
+                    <h3>Contact</h3>
+                    <p>For support or inquiries:</p>
+                    <a href="https://t.me/cryptolord" target="_blank" class="telegram-link">
+                        <i class="fab fa-telegram"></i> Join Our Telegram
+                    </a>
+                </div>
+            `;
+            document.getElementById('infoModal').classList.add('show');
+        }
+
+        function showFAQ() {
+            document.getElementById('dropdownMenu').classList.remove('show');
+            document.getElementById('infoTitle').textContent = '❓ ғʀᴇǫᴜᴇɴᴛʟʏ ᴀsᴋᴇᴅ ǫᴜᴇsᴛɪᴏɴs';
+            document.getElementById('infoBody').innerHTML = `
+                <div class="info-section">
+                    <h3>How does the ban method work?</h3>
+                    <p>ᴏᴜʀ sʏsᴛᴇᴍ sᴜʙᴍɪᴛs ᴍᴜʟᴛɪᴘʟᴇ ʀᴇᴘᴏʀᴛs (1-50 ɪɴsᴛᴀɴᴄᴇs) ᴛᴏ ᴡʜᴀᴛsᴀᴘᴘ's sᴜᴘᴘᴏʀᴛ ᴛᴇᴀᴍ sɪᴍᴜʟᴛᴀɴᴇᴏᴜsʟʏ, ᴇᴀᴄʜ ʀᴏᴜᴛᴇᴅ ᴛᴏ ᴛʜᴇ ᴀᴘᴘʀᴏᴘʀɪᴀᴛᴇ ᴠɪᴏʟᴀᴛɪᴏɴ ᴅᴇᴘᴀʀᴛᴍᴇɴᴛ. ᴛʜɪs ɪɴᴄʀᴇᴀsᴇs ᴛʜᴇ ᴠɪsɪʙɪʟɪᴛʏ ᴀɴᴅ ᴘʀɪᴏʀɪᴛʏ ᴏғ ʏᴏᴜʀ ʀᴇᴘᴏʀᴛ.</p>
+                </div>
+                <div class="info-section">
+                    <h3>ʜᴏᴡ ʟᴏɴɢ ᴜɴᴛɪʟ ᴛʜᴇ ᴀᴄᴄᴏᴜɴᴛ ɢᴇᴛs ʙᴀɴɴᴇᴅ?</h3>
+                    <p>ᴡʜᴀᴛsᴀᴘᴘ ᴛʏᴘɪᴄᴀʟʟʏ ʀᴇᴠɪᴇᴡs ʀᴇᴘᴏʀᴛs ᴡɪᴛʜɪɴ 24-48 ʜᴏᴜʀs. sᴇʀɪᴏᴜs ᴠɪᴏʟᴀᴛɪᴏɴs (ᴄʜɪʟᴅ sᴀғᴇᴛʏ, ᴛᴇʀʀᴏʀɪsᴍ) ᴀʀᴇ ᴘʀᴏᴄᴇssᴇᴅ ғᴀsᴛᴇʀ. ᴛʜᴇ ᴛᴀʀɢᴇᴛ ᴀᴄᴄᴏᴜɴᴛ ᴡɪʟʟ ʙᴇ sᴜsᴘᴇɴᴅᴇᴅ ɪғ ғᴏᴜɴᴅ ᴠɪᴏʟᴀᴛɪɴɢ ᴛᴇʀᴍs ᴏғ sᴇʀᴠɪᴄᴇ.</p>
+                </div>
+                <div class="info-section">
+                    <h3>ɪs ᴛʜɪs ᴀɴᴏɴʏᴍᴏᴜs?</h3>
+                    <p>ʏᴇs, ʏᴏᴜʀ ɪᴅᴇɴᴛɪᴛʏ ɪs ᴘʀᴏᴛᴇᴄᴛᴇᴅ. ᴡʜᴀᴛsᴀᴘᴘ ᴏɴʟʏ sᴇᴇs ᴛʜᴇ ᴠɪᴏʟᴀᴛɪᴏɴ ʀᴇᴘᴏʀᴛ, ɴᴏᴛ ʏᴏᴜʀ ᴘᴇʀsᴏɴᴀʟ ᴅᴇᴛᴀɪʟs ᴀs ᴛʜᴇ ʀᴇᴘᴏʀᴛᴇʀ.</p>
+                </div>
+                <div class="info-section">
+                    <h3>Can I report any number?</h3>
+                    <p>ʏᴏᴜ ᴄᴀɴ ʀᴇᴘᴏʀᴛ ᴀɴʏ ᴡʜᴀᴛsᴀᴘᴘ ɴᴜᴍʙᴇʀ ᴛʜᴀᴛ ʜᴀs ᴠɪᴏʟᴀᴛᴇᴅ ᴛᴇʀᴍs ᴏғ sᴇʀᴠɪᴄᴇ. ғᴀʟsᴇ ʀᴇᴘᴏʀᴛɪɴɢ ɪs ᴅᴇᴛᴇᴄᴛᴀʙʟᴇ ʙʏ ᴡʜᴀᴛsᴀᴘᴘ's ᴀɪ ᴀɴᴅ ᴍᴀʏ ʀᴇsᴜʟᴛ ɪɴ ʏᴏᴜʀ ᴏᴡɴ ᴀᴄᴄᴏᴜɴᴛ ʙᴇɪɴɢ ғʟᴀɢɢᴇᴅ.</p>
+                </div>
+                <div class="info-section">
+                    <h3>ᴡʜᴀᴛ ᴇᴠɪᴅᴇɴᴄᴇ sʜᴏᴜʟᴅ ɪ ᴘʀᴏᴠɪᴅᴇ?</h3>
+                    <p>sᴄʀᴇᴇɴsʜᴏᴛs ᴏғ ᴄᴏɴᴠᴇʀsᴀᴛɪᴏɴs, ᴘʀᴏғɪʟᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ, ᴏʀ ᴀɴʏ ᴘʀᴏᴏғ ᴏғ ᴠɪᴏʟᴀᴛɪᴏɴ. ᴍᴀxɪᴍᴜᴍ 5 ɪᴍᴀɢᴇs ᴘᴇʀ ʀᴇᴘᴏʀᴛ. ᴄʟᴇᴀʀ ᴇᴠɪᴅᴇɴᴄᴇ ɪɴᴄʀᴇᴀsᴇs ʙᴀɴ ᴘʀᴏʙᴀʙɪʟɪᴛʏ ʙʏ 80%.</p>
+                </div>
+                <div class="info-section">
+                    <h3>ᴡʜʏ ᴅᴏ ɪ ɴᴇᴇᴅ ᴀɴ ᴀᴄᴄᴏᴜɴᴛ?</h3>
+                    <p>ᴀᴄᴄᴏᴜɴᴛs ʜᴇʟᴘ ᴜs ᴘʀᴇᴠᴇɴᴛ ᴀʙᴜsᴇ ᴀɴᴅ ᴀʟʟᴏᴡ ʏᴏᴜ ᴛᴏ ᴛʀᴀᴄᴋ ʏᴏᴜʀ ʀᴇᴘᴏʀᴛ sᴛᴀᴛᴜs. ᴡᴇ ɴᴇᴠᴇʀ sʜᴀʀᴇ ʏᴏᴜʀ ᴅᴀᴛᴀ ᴡɪᴛʜ ᴛʜɪʀᴅ ᴘᴀʀᴛɪᴇs.</p>
+                </div>
+            `;
+            document.getElementById('infoModal').classList.add('show');
+        }
+
+        function openTelegram() {
+            document.getElementById('dropdownMenu').classList.remove('show');
+            window.open('https://t.me/cryptolord', '_blank');
+        }
+
+        function closeInfo() {
+            document.getElementById('infoModal').classList.remove('show');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.navbar')) {
+                document.getElementById('dropdownMenu').classList.remove('show');
+            }
+        });
+
+        // Auto-update stats every 30 seconds
+        setInterval(() => {
+            if (Backend.currentUser) {
+                updateStats();
+            }
+        }, 30000);
+    </script>
+</body>
+</html>
